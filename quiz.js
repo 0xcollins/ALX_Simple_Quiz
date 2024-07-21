@@ -1,21 +1,17 @@
-//  Define the checkAnswer function
+// Define Function
 function checkAnswer() {
-    //  Identify the correct answer
-    let correctAnswer = "4";
+    let correctAnswer = "4"; // Declare variable and assign value
     
-    //  Retrieve the user's answer
-    let userAnswer = document.querySelector("input[name=quiz]:checked");
+    // select the checked radio button by its name attribute
+    let userAnswer = document.querySelector("input[name=quiz]:checked").value;
     
-    // Get the feedback element
-    let feedbackElement = document.getElementById("feedback");
-    
-    //  Compare the user's answer with the correct answer
-    if (userAnswer && userAnswer.value === correctAnswer) {
-        feedbackElement.textContent = "Correct! Well done.";
-    } else {
-        feedbackElement.textContent = "That's incorrect. Try again!";
+    // check if the user's answer is correct
+    if (userAnswer === correctAnswer){
+        document.getElementById("feedback").textContent = "Correct! Well done.";
+    } else { // if incorrect, display a different message
+        document.getElementById("feedback").textContent = "That's incorrect. Try again!";
     }
 }
 
-//  Add an event listener to the submit button
+// Add a click event listener to the submit answer button
 document.getElementById("submit-answer").addEventListener("click", checkAnswer);
